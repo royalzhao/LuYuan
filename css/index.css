@@ -1,0 +1,87 @@
+body{
+	background: #3F3E3E;
+	color: #fff;
+}
+/* 头部 */
+.search-head{
+	padding: 5px 0;
+	border-radius: 5px;
+    background: #000;
+    border: 1px solid #999;
+	transition: all 0.45s ease-in-out;	
+	position: relative;
+	width: 0px;
+	height: 30px;
+	top: 10px;
+}
+.search-head form input{
+	border: 0;
+	background: transparent;
+	position: absolute;	
+    padding-left: 10px;
+    color: #fff
+}
+
+.search-head form .button{
+	background:transparent;
+	border:0 ;
+	position: absolute;
+    right: 5px;
+    color: #999;
+}
+.search-head form .button:hover span{
+	color: #fff;
+}
+.search-head:hover{
+	width: 180px;
+}
+
+.navbar{
+    border-radius: 0;
+}
+
+/* blog */
+.index-blog .container{
+    text-align: center;
+    color: #fff;
+}
+.index-blog .container h1{
+    font-size: 6rem;   
+    font-family: "楷体";
+}
+
+/* login页面 */
+p.error{
+	display: none;
+}
+.error{
+	color: red;
+	text-align: left;
+}
+input.error{
+	border: 1px  solid red;
+}
+.login-content{
+	margin: 10rem 0;
+}
+.login-content .container .row form .form-group{
+	margin: 20px 0;
+	overflow: hidden;
+	text-align: center;
+}
+.login-content .container .row form .form-group:nth-last-of-type(1){
+	text-align: left;
+}
+.login-content .container .row form legend{
+	color: #fff;
+	font-size: 30px;
+	text-align: center;
+}
+
+
+/* footer */
+footer{
+	height: 52px;
+	line-height: 52px;
+	color: #666;
+}

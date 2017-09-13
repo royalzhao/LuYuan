@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>心在远方，路在脚下</title>
+    <link rel="stylesheet" href="./css/bootstrap.min.css">
+    <link rel="stylesheet" href="./css/index.css">
+</head>
+<body>
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+        <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">LuYuan</a>
+            </div>
+        
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse navbar-ex1-collapse">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="#/"><span class="glyphicon glyphicon-home"></span>首页</a></li>
+                    <li><a href="#"><span class="glyphicon glyphicon-globe"></span>目的地</a></li>
+                </ul>
+                
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="search-head hidden-xs">
+                        <form action="#" method="post" class="search-form">
+                            <input type="search" name="search" id="search" value="" />
+                            <button class="button btn-search" type="button"><span class="glyphicon glyphicon-search"></span></button>
+                        </form>
+                    </li>
+                    <li class="visible-xs">
+                        <div class="input-group">
+                            <input type="text" class="form-control" placeholder="Search for...">
+                            <span class="input-group-btn">
+                                <button class="btn btn-default" type="button"><span class="glyphicon glyphicon-search"></span></button>
+                            </span>
+                        </div><!-- /input-group -->
+                    </li>
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">登录/注册 <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">登录</a></li>
+                            <li><a href="#">注册</a></li>
+                        </ul>
+                    </li>
+                </ul>
+            </div><!-- /.navbar-collapse -->
+        </div>
+    </nav>
+    <section class="index-blog">
+        <div class="container">
+            <h1>心在远方，路在脚下</h1>
+            <h3>摄影·游记</h3>
+        </div>
+    </section>
+
+    <div class="container">
+        
+    </div>
+    
+    
+    
+
+
+    <script src="./js/jquery.js"></script>
+    <script src="./js/bootstrap.min.js"></script>
+    <script src="./js/minigrid.js"></script>
+    <script src="./js/dynamics.js"></script>
+    <script src="./js/angular.min.js"></script>
+    <script src="./js/angular-route.min.js"></script>
+    <script src="./index.js"></script>
+    <script>
+        $(function(){
+            $('#search').val('');
+            $('#search').click(function(event){
+                $('.search-head').css('width','180px');
+                //alert('1');
+                event.stopPropagation();
+            }); 
+        })
+    </script>
+</body>
+</html>
