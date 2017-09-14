@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="./css/bootstrap.min.css">
     <link rel="stylesheet" href="./css/index.css">
 </head>
-<body ng-app="appLogin" ng-controller="appLoginController">
+<body ng-app="appRegister" ng-controller="appRegisterController">
     <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
         <div class="container">
             <!-- Brand and toggle get grouped for better mobile display -->
@@ -61,26 +61,54 @@
             <div class="row">
                 <div class="col-md-6 col-md-offset-3 col-sm-6 col-sm-offset-3 col-xs-6 col-xs-offset-3 col-lg-6 col-lg-offset-3">
                     <form role="form" name="loginForm" ng-submit="loginSubmitForm()" novalidate>
-                        <legend>登录</legend>
-                        <div class="form-group">
+                        <legend>注册</legend>
+                        <div class="form-group" ng-class="{'has-success':loginForm.username.$valid}">
                             <label for="firstname" class="col-sm-2 control-label">昵称</label>
                             <div class="col-sm-10">
-                              <input type="text" class="form-control" name="username" ng-model="userdata.username" required >
+                              <input type="text" class="form-control" name="username" ng-model="userdata.username" ng-minlength="2" ng-maxlength="32" required >
+                              <p class="glyphicon glyphicon-ok input_result success ng-hide" ng-show="loginForm.username.$valid"></p>
+                              <p class="error ng-hide" ng-show="(loginForm.username.$error.minlength || loginForm.username.$error.maxlength) && loginForm.username.$touched">昵称应在2~32位之间</p>
                               <p class="error ng-hide" ng-show="loginForm.username.$error.required  && loginForm.username.$touched">昵称不得为空</p>
                               
                             </div>
                         </div>
-                        <div class="form-group">
+                        <div class="form-group" ng-class="{'has-success':loginForm.email.$valid}">
+                            <label for="email" class="col-sm-2 control-label">邮箱</label>
+                            <div class="col-sm-10">
+                              <input type="email" class="form-control" required ng-model="userdata.email" name="email">
+                              <p class="glyphicon glyphicon-ok input_result success ng-hide" ng-show="loginForm.email.$valid"></p>
+                              <p class="error ng-hide" ng-show="loginForm.email.$error.required  && loginForm.email.$touched">邮箱不能为空</p>
+                              <p class="error ng-hide" ng-show="loginForm.email.$error.email  && loginForm.email.$touched">您的邮箱不合法</p>
+                            </div>
+                        </div>
+                        <div class="form-group" ng-class="{'has-success':loginForm.password.$valid}">
                             <label for="password" class="col-sm-2 control-label">密码</label>
                             <div class="col-sm-10">
-                              <input type="password" class="form-control" name="password" required  ng-model="userdata.password" id="password">
+                              <input type="password" class="form-control" name="password" required ng-minlength="6" ng-maxlength="255" ng-model="userdata.password" id="password">
+                              <p class="glyphicon glyphicon-ok input_result success ng-hide" ng-show="loginForm.password.$valid"></p>
+                              <p class="error ng-hide" ng-show="(loginForm.password.$error.minlength || loginForm.password.$error.maxlength) && loginForm.password.$touched">昵称应在6~255位之间</p>
                               <p class="error ng-hide" ng-show="loginForm.password.$error.required  && loginForm.password.$touched">密码不得为空</p>
+                              
+                            </div>
+                        </div>
+                        <div class="form-group" ng-class="{'has-success':loginForm.repassword.$valid}">
+                            <label for="repassword" class="col-sm-2 control-label">确认密码</label>
+                            <div class="col-sm-10">
+                              <input type="password" class="form-control" name="repassword" compare="userdata.password" required ng-model="userdata.repassword" id="repassword">
+                              <p class="glyphicon glyphicon-ok input_result success ng-hide" ng-show="loginForm.repassword.$valid"></p>
+                              <p class="error ng-hide" ng-show="loginForm.repassword.$error.compare  && loginForm.repassword.$touched">两次密码输入不一致</p>
                               
                             </div>
                         </div>
                         <div class="form-group">
                             <div class="col-sm-offset-2">
-                                <button type="submit" class="btn btn-default" ng-disabled="loginForm.$invalid">登录</button>
+                                <div class="checkbox">
+                                    <label>
+                                        <input type="checkbox" name="checkbox" ng-model="checkReadMe" required>
+                                        我已阅读<a>路远网用户协议</a>
+                                    </label>
+                                </div>
+                                <button type="submit" class="btn btn-default" ng-disabled="loginForm.$invalid">注册</button>
                             </div>
                         </div>
                         
@@ -93,7 +121,7 @@
     <footer class="navbar-fixed-bottom">
         <div class="container">
             <p>
-                <span class="pull-left">路远网 ©  2017. 中文</span>
+                <span class="pull-left">路远网 © 2017. 中文</span>
                 <span class="pull-right">备案</span>
             </p>
         </div>
@@ -107,7 +135,6 @@
     <script src="./js/bootstrap.min.js"></script>
     <script src="./js/angular.min.js"></script>
     <script src="./js/angular-route.min.js"></script>
-    <script src="./angularMC/login.js"></script>
-
+    <script src="./angularMc/register.js"></script>
 </body>
 </html>
