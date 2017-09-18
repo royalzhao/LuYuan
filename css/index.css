@@ -51,7 +51,7 @@ ul {
 
 /* blog */
 .index-blog{
-	margin:6rem 0 3rem 0;
+	margin:6rem 0 0 0;
 }
 .index-blog .container{
     text-align: center;
@@ -64,7 +64,9 @@ ul {
 .dropdown-toggle{
 	cursor: pointer;
 }
-
+.index-content{
+	margin: 
+}
 /* content */
 .index-content .container ul li a{
 	color: #ccc;
