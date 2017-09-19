@@ -1,7 +1,23 @@
-var appIndex = angular.module('appIndex', ['ngFlowGrid','ui.router']);
+var appIndex = angular.module('appIndex', ['ngFlowGrid','ui.router','hc.marked', 'hljs', 'angular-markdown-editor']);
 
-appIndex.config(function ($stateProvider,$urlRouterProvider) {
+appIndex.config(function ($stateProvider,$urlRouterProvider,markedProvider, hljsServiceProvider) {
 	$urlRouterProvider.otherwise('/index/youji');
+	markedProvider.setOptions({
+        gfm: true,
+        tables: true,
+        sanitize: true,
+        highlight: function (code, lang) {
+          if (lang) {
+            return hljs.highlight(lang, code, true).value;
+          } else {
+            return hljs.highlightAuto(code).value;
+          }
+        }
+	});
+	hljsServiceProvider.setOptions({
+	// replace tab with 4 spaces
+	tabReplace: '    '
+	});
     $stateProvider
         .state('index', {
 			url:'/index',
@@ -41,9 +57,38 @@ appIndex.config(function ($stateProvider,$urlRouterProvider) {
 			url:'/img',
             templateUrl: 'template/imgTemplate.html'
 		})
+		.state('writeYouji', {
+			url:'/writeYouji',
+            templateUrl: 'template/writeYouji.html'
+		})
+		.state('createImgs', {
+			url:'/createImgs',
+            templateUrl: 'template/createImgs.html'
+		})
 	
 })
-appIndex.controller('appIndexController',['$scope','fgDelegate',function($scope,fgDelegate){
+appIndex.controller('appIndexController',['$rootScope','$scope','marked','fgDelegate',function($rootScope,$scope,fgDelegate,marked){
+	// markdown
+	$scope.editor1 = "在此处以markdown格式编辑文本";
+	
+	// --
+	// normal flow, function call
+	$scope.convertMarkdown = function() {
+	  vm.convertedMarkdown = marked(vm.markdown);
+	}
+	$scope.fullScreenPreview = function() {
+		$rootScope.markdownEditorObjects.editor1.showPreview();
+		$rootScope.markdownEditorObjects.editor1.setFullscreen(true);
+	}
+	$scope.onFullScreenCallback = function(e) {
+        e.showPreview();
+	}
+	$scope.onFullScreenExitCallback = function(e) {
+        e.hidePreview();
+    }
+
+
+	// 双向数据
 	$scope.userdata={};
     $scope.loginSubmitForm = function(){
         console.log($scope.userdata);

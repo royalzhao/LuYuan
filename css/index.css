@@ -44,6 +44,9 @@ ul {
 .navbar{
     border-radius: 0;
 }
+.index-content{
+	margin-top: 8rem;
+}
 .index-content .container .nav li a:focus, .index-content .container .nav li a:hover{
 	background: transparent;
 	border: 1px solid #ccc;
@@ -63,9 +66,6 @@ ul {
 }
 .dropdown-toggle{
 	cursor: pointer;
-}
-.index-content{
-	margin: 
 }
 /* content */
 .index-content .container ul li a{
@@ -188,7 +188,7 @@ input.error{
 	border: 1px  solid #FC2727;
 }
 .login-content{
-	margin: 10rem 0;
+	margin: 6rem 0;
 }
 .login-content .container .row form .form-group{
 	margin: 20px 0;
@@ -199,7 +199,7 @@ input.error{
 .login-content .container .row form .form-group:nth-last-of-type(1){
 	text-align: left;
 }
-.login-content .container .row form .form-group input{
+.login-content .container .row form .form-group input,.login-content .container .row form .form-group textarea{
 	background: transparent;
 	border: 1px solid #ccc;
 	color: #fff;
@@ -223,6 +223,50 @@ footer{
 	height: 52px;
 	line-height: 52px;
 	color: #666;
+}
+
+/* 撰写游记 */
+.index-writeYouji textarea{
+	margin: 10rem 0;
+	background: transparent;
+	border: 1px solid #ccc;
+}
+.md-editor > textarea:focus{
+	background: transparent;
+}
+.md-editor > textarea{
+	background: transparent;
+	min-height: 420px;
+}
+.outline{
+	min-height: 465px;
+	max-height: 465px;
+	overflow: auto;
+}
+.youjiTitle{
+	margin-bottom: 3rem;
+}
+.youjiTitle .row .form-group div input{
+	background: transparent;
+}
+/* 创建图集 */
+.createImgs-info{
+	padding-top: 20px;
+	border: 1px solid #313131;
+	border-radius: 5px;
+	margin-bottom: 30%;
+}
+.createImgs-info .form-group .input-group input{
+	background: transparent;
+	border-color:#666;
+}
+.createImgs-info .form-group p{
+	color: #666;
+}
+.input-group-addon{
+	background-color: transparent;
+	color: #fff;
+	border-color: #666;
 }
 
 
